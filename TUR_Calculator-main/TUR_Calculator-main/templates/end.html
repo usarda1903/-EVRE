@@ -1,0 +1,87 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+    <meta charset="UTF-8" />  
+    <meta  
+      name="viewport"  
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"  
+    />  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />  
+    <link rel="stylesheet" href="../../static/css/style.css" />  
+    <title>Akıllı evler için enerji verimlilik hesaplayıcısı</title>  
+  </head>  
+  <body>  
+    <header class="header">  
+      <div class="header__text">  
+        <h1>Evinizin enerji verimliliğini hesaplayın!</h1>  
+        <p>Girişimde bulunun ve aşırı enerji tüketimi sorununu çözün!</p>  
+      </div>  
+    </header>  
+    <main>  
+      {% block content %}  
+      <h2 class="main__title main__title--margin">  
+        Evinizin enerji verimliliği:  
+      </h2>  
+      <div class="main__rez" id="end">  
+        {% if result <= 150 %}  
+        <img class="rez__img" src="../../static/img/planet_good.svg" alt="" />  
+        <span>Sonucunuz {{ result }} kWh</span>  
+        <span>Eviniz enerji tüketimi konusunda son derece verimlidir!</span> 
+        <h3>Yüksek enerji tüketen cihazlar: YÜKSEK ENERJİ TÜKETEN CİHAZ YOKTUR</h3>
+        <h1>Bu Sayede Neler Yaptınız?</h1>
+        <h3>1 - 100 kWh tüketen bir ev yaklaşık 0.05 ağaç kurtarır.
+          150 kWh tüketen bir ev yaklaşık 0.075 ağaç kurtarır.</h3>
+        <h3>2 - Daha az enerji talebi, doğal habitatların korunmasına yardımcı olur, böylece biyoçeşitlilik üzerinde olumlu etki yaratır.
+          Kuraklık, erozyon ve iklim değişikliği gibi sorunların azaltılmasına katkı sağlar.</h3>
+        <h3>3 - Enerji tasarruflu yaşam tarzını benimsemek, çevresel farkındalığın artmasına ve gelecek nesillere daha sürdürülebilir bir dünya bırakılmasına katkı sağlar.
+          Çevre dostu uygulamalara yönelik toplumsal bilincin artırılmasına yardımcı olur.</h3>
+        {% elif result > 150 and result < 300 %}
+        
+
+        <img class="rez__img" src="../../static/img/planet_medium.svg" alt="" />  
+        <span>Sonucunuz {{ result }} kWh</span>  
+        <span>Evınızın enerji verimliliği orta düzeydedir!</span>
+        <h3>Yüksek enerji tüketen cihazlar: Lamba ve Elektronik Alet Sayısını Biraz Azaltınız</h3>
+        <h1>Bu Sayede Neler Yaptınız?</h1>
+        <h3>1 - Enerji tüketimi, genellikle fosil yakıtların (kömür, doğal gaz, petrol) kullanımıyla ilişkilidir. 150-200 kWh arası bir tüketim, daha düşük emisyon seviyeleri ile bağlantılıdır.
+          Karbon ayak izinin azaltılması, iklim değişikliği ile mücadelede önemli bir adımdır.</h3>
+        <h3>2 - Düşük enerji tüketimi, enerji üretiminden kaynaklanan zararlı gazların salınımını azaltır. Bu, havanın kalitesini artırır ve halk sağlığını korur.
+          Daha temiz hava, solunum yolu hastalıklarının riskini düşürür.</h3>
+        <h3>3 - Enerji tüketiminin azaltılması, doğal kaynakların (su, madenler, fosil yakıtlar) daha verimli kullanılmasına ve korunmasına katkıda bulunur.
+          Enerji tasarrufu, çevresel sürdürülebilirliği artırır.</h3>
+        <h3>4 - Daha düşük aylık enerji tüketimi, faturaların azalmasını sağlar. Bu, hem hane bütçesine hem de ekonomik sürdürülebilirliğe katkıda bulunur.
+          Enerji verimliliği uygulamaları, uzun vadede yatırım getirisi sağlar.</h3>
+        {% elif result >= 300 %}
+        
+
+        <img class="rez__img" src="../../static/img/planet_bad.svg" alt="" />  
+        <span>Sonucunuz {{ result }} kWh</span>  
+        <span>Evınızın enerji verimliliği ortalamadan düşüktür!</span>
+        <h3>Yüksek enerji tüketen cihazlar: Lamba ve Elektronik Alet Sayısını Yüksek Derecede Azaltınız</h3>           
+        <h1>Bu Sayede Neler Yaptınız?</h1>
+        <h3>1 - Yüksek enerji tüketimi, genellikle fosil yakıtların (kömür, doğal gaz, petrol) kullanımını artırır. Bu, karbon dioksit ve diğer sera gazlarının daha fazla salınımına yol açar.
+          İklim değişikliği üzerindeki negatif etkileri artırabilir ve küresel ısınmayı hızlandırabilir.</h3>
+        <h3>2 - Enerji üretiminde kullanılan fosil yakıtlar, havada zararlı maddelerin salınımına neden olur.
+          Hava kalitesinin kötüleşmesi, solunum yolu hastalıkları ve diğer sağlık sorunları riskini artırabilir.</h3>
+        <h3>3 - Yüksek enerji kullanımı, doğal kaynakların daha hızlı tükenmesine sebep olabilir. Bu, su, fosil yakıtlar ve diğer doğal kaynakların aşırı kullanımı anlamına gelir.
+          Gelecek nesiller için bu kaynakların sürdürülebilirliği tehlikeye girmiş olur.</h3>
+        <h3>4 - Daha fazla enerji tüketimi, aylık enerji faturalarının yükselmesine neden olur. Bu durum, hane bütçesini zorlayabilir ve ekonomik sıkıntılara yol açabilir.
+          Uzun vadede enerji tasarrufu yapmayan ev sahipleri için maliyetler önemli bir sorun olabilir.</h3>
+        <h3>5 - Doğal habitatların tahribatı ve enerji üretimi için gerekli olan arazi kullanım değişiklikleri, biyoçeşitliliği olumsuz etkileyebilir.
+          Yaşam alanlarının kaybı, birçok türün yok olma riskini artırabilir.</h3>
+        
+         
+        <ul>  
+          {% for device in high_consumption_devices %}  
+          <li>{{ device.name }}: {{ device.consumption }} kWh</li>  
+          {% endfor %}  
+        </ul>  
+
+        <a href="{{ url_for('form') }}">Form için tıklayınız</a>  
+        {% endif %}  
+      </div>  
+      {% endblock %}  
+    </main>  
+    <footer></footer>  
+  </body>  
+</html>  
